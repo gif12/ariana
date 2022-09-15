@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<!--[if IE 8]> 	<html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" dir="rtl" lang="fa-IR"> <!--<![endif]-->
+
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<link rel="pingback" href="https://www.farsireader.com/xmlrpc.php" />  
+   			<link rel="shortcut icon" href="https://farsireader.com/wp-content/uploads/2016/08/favicon.png" /> 
+ 		
+		<!--[if lt IE 9]>
+		<script src="https://www.farsireader.com/wp-content/themes/RadinTheme/js/html5.js"></script>
+		<link rel="stylesheet" href="https://www.farsireader.com/wp-content/themes/RadinTheme/css/ie8.css" type="text/css" media="screen">
+	<![endif]-->
+		<title>راهنمای اتصال | سرویس متن به گفتار فارسی آریانا</title>
+
+<!-- This site is optimized with the Yoast SEO plugin v12.7.1 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="اتصال به سرویس REST آریانا، اتصال به سرویس WebSocket آریانا، اتصال به سرویس ابری آریانا به همراه نمونه کدهای اتصال"/>
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+<link rel="canonical" href="index.html%3Fp=339.html" />
+<meta property="og:locale" content="fa_IR" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="راهنمای اتصال | سرویس متن به گفتار فارسی آریانا" />
+<meta property="og:description" content="اتصال به سرویس REST آریانا، اتصال به سرویس WebSocket آریانا، اتصال به سرویس ابری آریانا به همراه نمونه کدهای اتصال" />
+<meta property="og:url" content="https://www.farsireader.com/connection/" />
+<meta property="og:site_name" content="سرویس متن به گفتار فارسی آریانا" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="اتصال به سرویس REST آریانا، اتصال به سرویس WebSocket آریانا، اتصال به سرویس ابری آریانا به همراه نمونه کدهای اتصال" />
+<meta name="twitter:title" content="راهنمای اتصال | سرویس متن به گفتار فارسی آریانا" />
+<meta name="twitter:image" content="https://www.farsireader.com/wp-content/uploads/2016/08/code.jpg" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.farsireader.com/#website","url":"https://www.farsireader.com/","name":"\u0633\u0631\u0648\u06cc\u0633 \u0645\u062a\u0646 \u0628\u0647 \u06af\u0641\u062a\u0627\u0631 \u0641\u0627\u0631\u0633\u06cc \u0622\u0631\u06cc\u0627\u0646\u0627","description":"\u062a\u0628\u062f\u06cc\u0644 \u0645\u062a\u0646 \u0628\u0647 \u06af\u0641\u062a\u0627\u0631 \u0641\u0627\u0631\u0633\u06cc","potentialAction":{"@type":"SearchAction","target":"https://www.farsireader.com/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://www.farsireader.com/connection/#primaryimage","url":"https://www.farsireader.com/wp-content/uploads/2016/08/code.jpg","width":839,"height":171},{"@type":"WebPage","@id":"https://www.farsireader.com/connection/#webpage","url":"https://www.farsireader.com/connection/","inLanguage":"fa-IR","name":"\u0631\u0627\u0647\u0646\u0645\u0627\u06cc \u0627\u062a\u0635\u0627\u0644 | \u0633\u0631\u0648\u06cc\u0633 \u0645\u062a\u0646 \u0628\u0647 \u06af\u0641\u062a\u0627\u0631 \u0641\u0627\u0631\u0633\u06cc \u0622\u0631\u06cc\u0627\u0646\u0627","isPartOf":{"@id":"https://www.farsireader.com/#website"},"primaryImageOfPage":{"@id":"https://www.farsireader.com/connection/#primaryimage"},"datePublished":"2016-08-01T11:01:19+00:00","dateModified":"2019-12-25T11:51:22+00:00","description":"\u0627\u062a\u0635\u0627\u0644 \u0628\u0647 \u0633\u0631\u0648\u06cc\u0633 REST \u0622\u0631\u06cc\u0627\u0646\u0627\u060c \u0627\u062a\u0635\u0627\u0644 \u0628\u0647 \u0633\u0631\u0648\u06cc\u0633 WebSocket \u0622\u0631\u06cc\u0627\u0646\u0627\u060c \u0627\u062a\u0635\u0627\u0644 \u0628\u0647 \u0633\u0631\u0648\u06cc\u0633 \u0627\u0628\u0631\u06cc \u0622\u0631\u06cc\u0627\u0646\u0627 \u0628\u0647 \u0647\u0645\u0631\u0627\u0647 \u0646\u0645\u0648\u0646\u0647 \u06a9\u062f\u0647\u0627\u06cc \u0627\u062a\u0635\u0627\u0644"}]}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='index.html' />
+<link rel='dns-prefetch' href='https://fonts.googleapis.com/' />
+<link rel='dns-prefetch' href='https://s.w.org/' />
+<link rel="alternate" type="application/rss+xml" title="سرویس متن به گفتار فارسی آریانا &raquo; خوراک" href="https://www.farsireader.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="سرویس متن به گفتار فارسی آریانا &raquo; خوراک دیدگاه‌ها" href="https://www.farsireader.com/comments/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.farsireader.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.2.16"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])?!1:!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-rtl-css'  href='https://www.farsireader.com/wp-includes/css/dist/block-library/style-rtl.min.css?ver=5.2.16' type='text/css' media='all' />
+<link rel='stylesheet' id='contact-form-7-css'  href='https://www.farsireader.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.1.7' type='text/css' media='all' />
+<link rel='stylesheet' id='contact-form-7-rtl-css'  href='https://www.farsireader.com/wp-content/plugins/contact-form-7/includes/css/styles-rtl.css?ver=5.1.7' type='text/css' media='all' />
+<link rel='stylesheet' id='wpcf-slick-css'  href='https://www.farsireader.com/wp-content/plugins/wp-carousel-free/public/css/slick.min.css?ver=2.1.7' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-carousel-free-fontawesome-css'  href='https://www.farsireader.com/wp-content/plugins/wp-carousel-free/public/css/font-awesome.min.css?ver=2.1.7' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-carousel-free-css'  href='https://www.farsireader.com/wp-content/plugins/wp-carousel-free/public/css/wp-carousel-free-public.min.css?ver=2.1.7' type='text/css' media='all' />
+<link rel='stylesheet' id='plugin-styles-css'  href='https://www.farsireader.com/wp-content/themes/RadinTheme/css/plugins.css?ver=5.2.16' type='text/css' media='all' />
+<link rel='stylesheet' id='main-styles-css'  href='https://www.farsireader.com/wp-content/themes/RadinTheme/style.css?ver=5.2.16' type='text/css' media='all' />
+<link rel='stylesheet' id='dynamic-styles-css'  href='https://www.farsireader.com/wp-content/themes/RadinTheme/css/dynamic-styles.php?ver=5.2.16' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-rtl-css'  href='https://www.farsireader.com/wp-content/themes/RadinTheme/css/bootstrap-rtl.css?ver=5.2.16' type='text/css' media='all' />
+<link rel='stylesheet' id='unik-roboto-css'  href='https://fonts.googleapis.com/css?family=Roboto%3A400%2C100%2C100italic%2C300%2C300italic%2C400italic%2C500%2C500italic%2C700%2C700italic&#038;ver=5.2.16' type='text/css' media='all' />
+<link rel='stylesheet' id='unik-opensans-css'  href='https://fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C700italic%2C400%2C700%2C600%2C300&#038;ver=5.2.16' type='text/css' media='all' />
+<link rel='stylesheet' id='js_composer_front-css'  href='https://www.farsireader.com/wp-content/plugins/js_composer/assets/css/js_composer.min.css?ver=4.12' type='text/css' media='all' />
+<script type='text/javascript' src='https://www.farsireader.com/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://www.farsireader.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://www.farsireader.com/wp-content/themes/RadinTheme/js/bootstrap.js?ver=3.0.1'></script>
+<link rel='https://api.w.org/' href='wp-json/index.html' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.farsireader.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.2.16" />
+<link rel='shortlink' href='index.html%3Fp=339.html' />
+<link rel="alternate" type="application/json+oembed" href="wp-json/oembed/1.0/embed%3Furl=https:%252F%252Fwww.farsireader.com%252Fconnection%252F" />
+<link rel="alternate" type="text/xml+oembed" href="wp-json/oembed/1.0/embed%3Furl=https:%252F%252Fwww.farsireader.com%252Fconnection%252F&amp;format=xml" />
+<style type="text/css">																												ul.main-menu li.active a, ul.main-menu li.current-menu-parent>a{
+											}
+								body, p, .blog-section.col1 .post-content, .single-post-content, .accord-content, .tab-content .tab-pane, .unik-section ul.feature-list li p, ul.feature-list li p,
+		.float-image-section .float-box p, .float-image-section .float-box, .features-section3 p, .accord-content p, .pow-section p, .float-image-section .cont-box p, .features-post p,
+		.vertical-tabs-box .tab-content .tab-pane p, .horizontal-tabs-box .tab-content .tab-pane p, .vertical-tabs-box .tab-content .tab-pane, .horizontal-tabs-box .tab-content .tab-pane{
+		
+																	}
+		header a.logo{
+																	}
+		header ul.main-menu li a{
+																	}
+		h1, .pow-section h1, .features-section3 h1{
+																	}
+		h2{
+																	}
+		h3{
+																	}
+		h4{
+																	}
+		h5{
+																	}
+		h6{
+																	}
+		.banner h1 span{
+																	}
+		.pager-line ul li a, .pager-line ul li{
+																	}
+		.pager-line ul li:before{
+														}
+		#sidebar .sidebar-section.white-box h2{
+																	}
+		footer .up-footer h2{
+																	}
+</style><meta name="generator" content="Powered by Visual Composer - drag and drop page builder for WordPress."/>
+<!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="https://www.farsireader.com/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]--><!--[if IE  8]><link rel="stylesheet" type="text/css" href="https://www.farsireader.com/wp-content/plugins/js_composer/assets/css/vc-ie8.min.css" media="screen"><![endif]--><noscript><style type="text/css"> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript></head>
+
+<body class="rtl page-template-default page page-id-339 wpb-js-composer js-comp-ver-4.12 vc_responsive" >
+    
+    
+
+
+              
+           
+		
+	
+    <div id="container" class="container " >
+	
+	<div id="sidebar" class="">
+		<header class="sidebar-section">
+			<div class="header-logo">
+								 <a href="index.html" id="logo" class="logo">
+											<img src="http://farsireader.com/wp-content/uploads/2016/08/ariana_logo-1.png" alt="سرویس متن به گفتار فارسی آریانا" id="logo-image"  />
+									 </a>
+			</div>
+			<a class="elemadded responsive-link" href="index.html%3Fp=339.html#"><i class="fa fa-bars"> </i>			</a>
+			<div class="navbar-wrapper">
+				<div class="navbar-vertical">
+					<ul id="menu-main" class="main-menu"><li id="menu-item-293" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-293"><a href="index.html"> <i class="fa fa-home"></i>صفحه اصلی<span></span></a></li>
+<li id="menu-item-662" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-662"><a href="index.html%3Fp=286.html"> <i class="fa fa-shopping-cart"></i>محصولات<span></span></a></li>
+<li id="menu-item-421" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-421"><a href="index.html%3Fp=418.html"> <i class="fa fa-check-square-o"></i>کاربردهای آریانا<span></span></a></li>
+<li id="menu-item-344" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-344"><a href="index.html%3Fp=337.html"> <i class="fa fa-cogs"></i>نصب و راه‌اندازی<span></span></a></li>
+<li id="menu-item-345" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-339 current_page_item menu-item-345 active"><a href="index.html%3Fp=339.html"> <i class="fa fa-code"></i>راهنمای اتصال<span></span></a></li>
+<li id="menu-item-343" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-343"><a href="index.html%3Fp=341.html"> <i class="fa fa-tty"></i>سوالات متداول<span></span></a></li>
+<li id="menu-item-300" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-300"><a href="index.html%3Fp=15.html"> <i class="fa fa-envelope"></i>ارتباط با ما<span></span></a></li>
+<li id="menu-item-379" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-379"><a href="index.html%3Fp=377.html"> <i class="fa fa-language"></i>English<span></span></a></li>
+</ul>				</div>
+			</div>
+			<div id="text-5" class="sidebar-section white-box widget_text"><h2>درباره ما</h2>			<div class="textwidget"><center><img width="100%" src="wp-content/uploads/2015/02/asrgooyesh-logo.jpg"></center>
+<p  onmouseup="getSelectedParagraphText()" style="text-align: justify;">عصر گویش پرداز فعال‌ترین شرکت ایرانی در زمینه هوش مصنوعی و پردازش صدا است که از سال ۱۳۸۲ با پشتوانه فنی متخصصان دانشگاه صنعتی شریف، مشغول فعالیت بوده است. محصولات و خدمات ارائه شده توسط این شرکت به صورت تخصصی در زمینه‌های تبدیل متن به گفتار، تایپ گفتاری، جستجو در صوت، پردازش تصویر و پردازش زبان طبیعی است.</p></div>
+		</div><div id="text-4" class="sidebar-section white-box widget_text"><h2>وبسایت‌های ما</h2>			<div class="textwidget"><ul class="main-menu">
+<li class="menu-item"><a title="وبسایت عصر گویش پرداز" href="http://asr-gooyesh.com/" target="_blank" rel="noopener noreferrer">وبسایت عصر گویش پرداز<span></span></a></li>
+<li class="menu-item"><a title="نرم افزار تایپ گفتاری نویسا" href="http://nevisasoft.com/" target="_blank" rel="noopener noreferrer">نرم افزار تایپ گفتاری نویسا<span></span></a></li>
+<li class="menu-item"><a title="فروشگاه آنلاین فارسی ویپ" href="http://www.farsivoip.com/" target="_blank" rel="noopener noreferrer">فروشگاه آنلاین فارسی ویپ<span></span></a></li>
+</ul></div>
+		</div><div id="text-6" class="sidebar-section white-box widget_text"><h2>برخی مشتریان ما</h2>			<div class="textwidget">شرکت داده پردازی آموت (آوانک)<br>
+شرکت سوئدی ReadSpeaker<br>
+شرکت سامانه فناوری طوبی<br>
+شرکت سپهر سلامت<br>
+شرکت فناوری اطلاعات ارتباطات<br>
+پارسه بین الملل آتیه ویژن<br>
+شرکت ایمن دابا پارسیان<br>
+شرکت پویان سیستم یزد<br>
+و ...</div>
+		</div>		</header>
+		
+	</div>
+	<div id="content">
+				<div class="row">
+	<div class="col-md-12">
+					<div class="box-section banner-section">
+				<div class="banner">
+					<img width="839" height="171" src="wp-content/uploads/2016/08/code.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="wp-content/uploads/2016/08/code.jpg 839w, wp-content/uploads/2016/08/code-300x61.jpg 300w, wp-content/uploads/2016/08/code-768x157.jpg 768w" sizes="(max-width: 839px) 100vw, 839px" />											<h1 class="page-title"><span>راهنمای اتصال</span></h1>
+										
+				</div>
+							</div>
+			</div>
+</div>
+<div class="page-section row">
+	
+		<div class="col-md-12">
+		<div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper"><div class="panelshort unik-line-section animation flipInY ">
+				</p>
+<p style="text-align: center;"> نمونه کدهای اتصال</p>
+<p>
+			</div></div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper"><div class="box-section  animation fadeInUpBig services-section" style=" background-image:url(wp-content/uploads/2016/08/18.jpg) !important;"><div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-3"><div class="vc_column-inner "><div class="wpb_wrapper">
+			<div class="services-section   ">
+			<div class=" services-post">
+				<div class="inner-services-post">
+					<span><i class="fa fa-code" style="color:#ffffff"></i></span><br>
+					
+					<a href="dl/ArianaClient_CSharp.rar" style="color:#ffffff; border-color:#ffffff">کلاینت <br>#C</a>
+				</div>
+			  </div></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-3"><div class="vc_column-inner "><div class="wpb_wrapper">
+			<div class="services-section   ">
+			<div class=" services-post">
+				<div class="inner-services-post">
+					<span><i class="fa fa-code" style="color:#ffffff"></i></span><br>
+					
+					<a href="dl/ArianaClient_Elastix.rar" style="color:#ffffff; border-color:#ffffff">کلاینت <br>Asterisk</a>
+				</div>
+			  </div></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-3"><div class="vc_column-inner "><div class="wpb_wrapper">
+			<div class="services-section   ">
+			<div class=" services-post">
+				<div class="inner-services-post">
+					<span><i class="fa fa-code" style="color:#ffffff"></i></span><br>
+					
+					<a href="dl/ArianaClient_PHP.rar" style="color:#ffffff; border-color:#ffffff">کلاینت <br>PHP</a>
+				</div>
+			  </div></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-3"><div class="vc_column-inner "><div class="wpb_wrapper">
+			<div class="services-section   ">
+			<div class=" services-post">
+				<div class="inner-services-post">
+					<span><i class="fa fa-code" style="color:#ffffff"></i></span><br>
+					
+					<a href="dl/ArianaCloudClientSamples(PHP_CSharp).rar" style="color:#ffffff; border-color:#ffffff">کلاینت ابری<br>PHP و #C</a>
+				</div>
+			  </div></div></div></div></div></div></div></div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper"><div class="panelshort unik-line-section animation flipInY ">
+				</p>
+<p style="text-align: center;"><span lang="fa">اتصال به</span> سرویس ابری آریانا</p>
+<p>
+			</div></div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper"><div class="box-section  animation bounceInLeft " style="">
+	<div class="wpb_text_column wpb_content_element ">
+		<div class="wpb_wrapper">
+			<p>وب‌سرویس ابری آریانا مبتنی بر استاندارد REST و بر پایه پروتکل HTTP طراحی شده است.</p>
+<p style="text-align: justify;"><span lang="fa">برای استفاده از سرویس ابری آریانا نیاز به دریافت کد کاربری (</span>APIKey<span lang="fa">) دارید. برای این می‌توانید به وبسایت عصر گویش پرداز مراجعه نموده و پس از ثبت نام در سایت، از آدرس <a href="http://asr-gooyesh.com/fa/arianacloud-dashboard">http://asr-gooyesh.com/fa/arianacloud-dashboard</a> کد کاربری خود را دریافت نمایید و از شارژ رایگان اولیه استفاده نمایند.</span></p>
+<p>&nbsp;</p>
+<ul>
+<li><span lang="fa">متد </span>GET</li>
+</ul>
+<div align="center">
+<table style="width: 817px;" border="1">
+<tbody>
+<tr>
+<td dir="ltr" style="width: 10px; word-break: break-all;"><span style="font-size: 10pt; font-family: arial, helvetica, sans-serif;">http://api.farsireader.com/ArianaCloudService/ReadTextGET?APIKey={KEY}&amp;Text={TEXT}&amp;Speaker={SPEAKER}&amp;Format={FORMAT}&amp;GainLevel={GAIN}&amp;PitchLevel={PITCH}&amp;PunctuationLevel={PUNCTUATION}&amp;SpeechSpeedLevel={SPEED}&amp;ToneLevel={TONE}&amp;Quality={QUALITY}&amp;<span lang="fa">BeginningSilence</span>={SEC}&amp;End<span lang="fa">ingSilence={SEC}&amp;Base64Encode={TYPE}</span></span></td>
+</tr>
+<tr>
+<td dir="ltr" style="word-break: break-all; text-align: justify; width: 10px;">
+<p style="text-align: right;">:مثال</p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">http://api.farsireader.com/ArianaCloudService/ReadTextGET?APIKey=XYZ&amp;Text=hello</span><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">&amp;Speaker=Female1&amp;Format=mp3&amp;GainLevel=0</span><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">&amp;PitchLevel=0&amp;PunctuationLevel=0&amp;SpeechSpeedLevel=0&amp;ToneLevel=0&amp;Quality=normal&amp;<span lang="fa">BeginningSilence</span>=0&amp;End<span lang="fa">ingSilence=0&amp;Base64Encode=0</span></span></p>
+<p style="text-align: right;">:یا به طور خلاصه</p>
+<p style="text-align: left;">http://api.farsireader.com/ArianaCloudService/ReadTextGET?APIKey=XYZ&#038;Text=hello&#038;Speaker=Female1&#038;Format=mp3</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p style="text-align: justify;"><span lang="fa"><span style="font-family: Tahoma; font-size: small;">در متد </span></span><span style="font-family: Tahoma; font-size: small;">GET <span lang="fa">پارامترهای </span>Text<span lang="fa"> و </span>Format<span lang="fa"> باید به فرمت </span>URL Encoded <span lang="fa">تبدیل شوند. برای مثال، عبارت &#8220;تست&#8221; به صورت &#8220;%D8%AA%D8%B3%D8%AA&#8221; </span></span><span style="font-family: Tahoma; font-size: small;"><span lang="fa">ارسال می‌شود.</span></span></p>
+<p style="text-align: justify;"><span lang="fa">همچنین توجه شود که در این متد، با رسیدن هر درخواست به سرور، شارژ حساب کاربری به تعداد مجموع کلمات (هر پیام معادل حداکثر 25 کلمه) کسر خواهد شد. در بعضی مرورگرها و یا ابزارهای دانلود، رایج است که برای تسریع بارگذاری فایل، درخواست‌های (</span>Connection<span lang="fa">) مکرر و همزمان به سمت سرور ارسال می‌شود که هر کدام از این درخواست‌ها باعث کسر شارژ از حساب کاربری خواهد شد. بنابراین توصیه می‌شود فایل صوتی حاصل از متد </span>GET<span lang="fa"> را فقط با یک </span>Connection <span lang="fa">دانلود نمایید.</span></p>
+<p>&nbsp;</p>
+<ul>
+<li>متد POST</li>
+</ul>
+<div align="center">
+<table border="1" width="900">
+<tbody>
+<tr>
+<td style="text-align: left;"><span style="color: #0066cc; font-family: 'Courier New'; font-size: small;">http://api.farsireader.com/ArianaCloudService/ReadText</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>فرمت ورود داده‌ها بدین شکل است:</p>
+<div align="center">
+<table border="1" width="700">
+<tbody>
+<tr>
+<td>
+<p dir="ltr" style="text-align: left;"><span lang="fa"><span style="color: #0066cc; font-family: 'Courier New'; font-size: small;">Content-type: application/json</span></span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p dir="ltr" align="left"><span style="color: #0066cc; font-family: 'Courier New'; font-size: small;"><span lang="fa">{<br />
+</span>    &#8220;<span lang="fa">Text&#8221;:&#8221;متن درخواستی&#8221;,<br />
+</span>    &#8220;<span lang="fa">Speaker&#8221;:&#8221;Female1&#8243;,<br />
+</span>    &#8220;<span lang="fa">PitchLevel&#8221;:&#8221;0&#8243;,<br />
+</span>    &#8220;<span lang="fa">PunctuationLevel&#8221;:&#8221;0&#8243;,<br />
+</span>    <span lang="fa">&#8220;</span>SpeechSpeed<span lang="fa">L</span>evel&#8221;<span lang="fa">:&#8221;</span>0&#8243;<span lang="fa">,<br />
+</span>    &#8220;<span lang="fa">ToneLevel&#8221;:&#8221;</span>0&#8243;<span lang="fa">,<br />
+</span>    &#8220;<span lang="fa">GainLevel&#8221;:&#8221;</span>0&#8243;<span lang="fa">,<br />
+</span></span><span style="color: #0066cc; font-family: 'Courier New'; font-size: small;">    &#8220;<span lang="fa">BeginningSilence&#8221;:&#8221;</span>0&#8243;<span lang="fa">,<br />
+</span>    &#8220;<span lang="fa">EndingSilence&#8221;:&#8221;</span>0&#8243;<span lang="fa">,<br />
+</span></span><span style="color: #0066cc; font-family: 'Courier New'; font-size: small;">    &#8220;<span lang="fa">Format&#8221;:&#8221;mp3&#8243;,<br />
+</span></span><span style="color: #0066cc; font-family: 'Courier New'; font-size: small;"><span lang="fa">    &#8220;Base64Encode&#8221;:&#8221;0&#8243;,<br />
+</span></span><span style="color: #0066cc; font-family: 'Courier New'; font-size: small;">    &#8220;Quality<span lang="fa">&#8220;:&#8221;normal&#8221;,<br />
+</span>    &#8220;<span lang="fa">APIKey&#8221;:&#8221;mykey&#8221;<br />
+</span><span lang="fa">}</span></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p style="text-align: justify;"><span lang="fa"><br />
+توجه شود که حتماً در Header درخواست POST، نوع داده (Content-type) به صورت application/json مشخص گردد.<br />
+</span><span lang="fa"><br />
+سرویس آریانا پس از پردازش متن درخواستی، صوت تبدیل شده را در جواب به صورت Byte Stream ارسال می‌نماید.<br />
+درخواست پردازش متن به صورت غیر هم‌زمان (Blocking) بوده و کلاینت موظف است تا اتمام پردازش متن و آماده شدن کامل صوت، منتظر پاسخ بماند. لذا نیاز است پارامتر Timeout در کلاینت به مقدار مناسبی تنظیم شود تا درخواست </span>POST قبل از اتمام پردازش قطع نشود<span lang="fa">. مقدار پیشنهادی این پارامتر برای متن طولانی، حداقل 120 ثانیه است.</span></p>
+<ul>
+<li>شرح پارامترها</li>
+</ul>
+<div align="center">
+<table border="1" width="700">
+<tbody>
+<tr style="height: 19px;">
+<td style="height: 19px;"><span style="color: #0066cc; font-size: small;">Text</span></td>
+<td style="height: 19px;"><span style="font-size: small;">متن درخواستی برای پردازش</span></td>
+</tr>
+<tr style="height: 57px;">
+<td style="height: 57px;"><span style="color: #0066cc; font-size: small;">Speaker</span></td>
+<td style="height: 57px;"><span style="font-size: small;">گوینده متن<br />
+مقادیر: Female1, Male2, Male1 <span lang="fa">(پیش‌فرض </span>Female1<span lang="fa">)</span><br />
+<span lang="fa">انتخاب </span>پیش‌فرض: &#8221; <span lang="fa">(</span>empty string<span lang="fa">)</span></span></td>
+</tr>
+<tr style="height: 57px;">
+<td style="height: 57px;"><span style="color: #0066cc; font-size: small;">PitchLevel</span></td>
+<td style="height: 57px;"><span style="font-size: small;">میزان زیر و بمی صدا<br />
+مقادیر: 1 تا 10<span lang="fa"> (پیش‌فرض 4)</span></span><br />
+<span style="font-size: small;"><span lang="fa">انتخاب </span>پیش‌فرض: 0</span></td>
+</tr>
+<tr style="height: 57px;">
+<td style="height: 57px;"><span style="color: #0066cc; font-size: small;">PunctuationLevel</span></td>
+<td style="height: 57px;"><span style="font-size: small;">سطح خواندن علائم نگارشی<br />
+مقادیر: 1 تا 3<span lang="fa"> (پیش‌فرض 2)</span></span><br />
+<span style="font-size: small;"><span lang="fa">انتخاب </span>پیش‌فرض: 0</span></td>
+</tr>
+<tr style="height: 57px;">
+<td style="height: 57px;"><span style="color: #0066cc; font-size: small;">SpeechSpeedLevel</span></td>
+<td style="height: 57px;"><span style="font-size: small;">سرعت خواندن<br />
+مقادیر: 1 تا 10<span lang="fa"> (پیش‌فرض 5)</span></span><br />
+<span style="font-size: small;"><span lang="fa">انتخاب </span>پیش‌فرض: 0</span></td>
+</tr>
+<tr style="height: 57px;">
+<td style="height: 57px;"><span style="color: #0066cc; font-size: small;">ToneLevel</span></td>
+<td style="height: 57px;"><span style="font-size: small;">تن صدا<br />
+مقادیر: 1 تا 19<span lang="fa"> (پیش‌فرض 10)</span></span><br />
+<span style="font-size: small;"><span lang="fa">انتخاب </span>پیش‌فرض: 0</span></td>
+</tr>
+<tr style="height: 57px;">
+<td style="height: 57px;"><span style="color: #0066cc; font-size: small;">GainLevel</span></td>
+<td style="height: 57px;"><span style="font-size: small;">بلندی صدا<br />
+مقادیر: 1 تا 5<span lang="fa"> (پیش‌فرض 3)</span></span><br />
+<span style="font-size: small;"><span lang="fa">انتخاب </span>پیش‌فرض: 0</span></td>
+</tr>
+<tr style="height: 19px;">
+<td style="height: 19px;"><span style="color: #0066cc; font-size: small;">BeginningSilence</span></td>
+<td style="height: 19px;"><span style="font-size: small;"><span style="font-size: small;">تعداد ثانیه های سکوت ابتدای صوت<br />
+مقادیر: 0 تا 5<span lang="fa"> (پیش‌فرض 0)</span></span></span></td>
+</tr>
+<tr style="height: 19px;">
+<td style="height: 19px;"><span style="color: #0066cc; font-size: small;"><span style="color: #0066cc; font-size: small;">EndingSilence</span></span></td>
+<td style="height: 19px;"><span style="font-size: small;"><span style="font-size: small;">تعداد ثانیه های سکوت انتهای صوت<br />
+مقادیر: 0 تا 5<span lang="fa"> (پیش‌فرض 0)</span></span></span></td>
+</tr>
+<tr style="height: 218px;">
+<td style="height: 218px;"><span style="color: #0066cc; font-size: small;">Format</span></td>
+<td style="height: 218px;">
+<p style="text-align: right;"><span style="font-size: small;">مقادیر فرمت گفتار تبدیل شده:</span></p>
+<p style="text-align: left;"><span style="font-size: small;">wav16: Wave 16KHz Mono 16bit</span><br />
+<span style="font-size: small;"> alaw<span lang="fa">16</span>: Wave 16KHz Mono a-law 8bit</span><br />
+<span style="font-size: small;">mlaw<span lang="fa">16</span>: Wave 16KHz Mono mu-law 8bit<br />
+wav8: Wave 8KHz Mono 16bit</span><br />
+<span style="font-size: small;">alaw<span lang="fa">8</span>: Wave 8KHz Mono a-law 8bit</span><br />
+<span style="font-size: small;">mlaw<span lang="fa">8</span>: Wave 8KHz Mono mu-law 8bit</span><br />
+<span style="font-size: small;">mp3: MP3 32Kbps Mono<br />
+ogg: OGG (Opus) 32Kbps Mono<br />
+raw<span lang="fa">16</span>: Raw Wave 16KHz Mono 16bit, Without 44 Bytes Wave Header</span></p>
+<p dir="ltr" style="text-align: right;"><span style="font-size: small;"><span lang="fa">(پیش‌فرض </span> wav16<span lang="fa">)</span><br />
+<span lang="fa">انتخاب </span>پیش‌فرض: &#8221; <span lang="fa"> (</span>empty string<span lang="fa">)</span></span></p>
+</td>
+</tr>
+<tr style="height: 19px;">
+<td style="height: 19px;"><span style="color: #0066cc; font-size: small;">Quality</span></td>
+<td style="height: 19px;"><span style="font-size: small;"><span style="font-size: small;"><span style="font-size: small;">کیفیت صدای ساخته شده<br />
+مقادیر:<br />
+</span></span></span></p>
+<p style="direction: ltr;"><span style="font-family: inherit; line-height: 1.5;">normal: صدا با کیفیت نرمال &#8211; پیش فرض<br />
+</span><span style="font-family: inherit; line-height: 1.5;">low: صدا با کیفیت کم‌تر و زمان ساخت سریع‌تر</span></p>
+</td>
+</tr>
+<tr>
+<td><span style="color: #0066cc; font-size: small;">Base64Encode</span></td>
+<td><span style="font-size: small;">استفاده از Base64 Encoding در <span lang="fa"> ارسال متن</span> ورودی و <span lang="fa">بافر صوتی </span>خروجی<br />
+مقادیر: 0 تا 4<span lang="fa"> (پیش‌فرض 0)</span><br />
+مقادیر 0 و 1 از Base64 Encoding استفاده نمی‌<span lang="fa">شود</span>.<br />
+مقدار 2 برای <span lang="fa">ارسال متن</span> ورودی از Base64 Encoding استفاده <span lang="fa">شده است</span>.<br />
+مقدار 3 برای <span lang="fa">ارسال بافر صوتی</span> <span lang="fa">خروجی</span> از Base64 Encoding استفاده می‌شود.<br />
+مقدار 4 برای <span lang="fa">ارسال متن</span> <span lang="fa">ورودی و بافر صوتی خروجی</span> از Base64 Encoding استفاده می‌شود.</span></td>
+</tr>
+<tr style="height: 19px;">
+<td style="height: 19px;"><span style="color: #0066cc; font-size: small;">APIKey</span></td>
+<td style="height: 19px;"><span style="font-size: small;">کد کاربری استفاده از سرویس ابری آریانا که در پنل کاربری در سایت قابل دسترسی است.</span></td>
+</tr>
+<tr style="height: 19px;">
+<td style="height: 19px;" colspan="2"><span style="color: #0066cc; font-size: small;"><span style="color: #008000;"><strong> <span lang="fa"><span style="font-size: small;">انتخاب</span></span></strong><span style="font-size: small;"><span lang="fa"><strong> پیش‌فرض</strong>، مقداری را انتخاب می‌کند که در آریانا کنسول در قسمت </span>Speech<span lang="fa">/</span>Text Defaults<span lang="fa"> تعیین شده است.</span></span></span></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+		</div>
+	</div>
+</div></div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper"><div class="panelshort unik-line-section animation flipInY ">
+				</p>
+<p style="text-align: center;">اتصال به سرویس REST آریانا</p>
+<p>
+			</div></div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper">
+	<div class="wpb_text_column wpb_content_element ">
+		<div class="wpb_wrapper">
+			<p>وب‌سرویس آریانا مبتنی بر استاندارد REST و بر پایه پروتکل HTTP طراحی شده است. دسترسی به این سرویس از طریق متد <span lang="fa">تشریح شده در ذیل </span>ممکن است<span lang="fa">.</span> برنامه‌<span lang="fa">های</span> نمونه شامل تمام قابلیت‌های موجود در سرویس آریانا به همراه سورس‌کد مربوطه در پوشه نصب آریانا قابل دسترس هستند.</p>
+<p>&nbsp;</p>
+<h2><span lang="fa">آدرس متد</span></h2>
+<p>&nbsp;</p>
+<div align="center">
+<table border="1" width="900">
+<tbody>
+<tr>
+<td style="text-align: left;"><span style="color: #0066cc; font-family: 'Courier New'; font-size: small;">http://{ServerIP}:{ServerPort}/ArianaRESTService/ReadText/</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>&nbsp;</p>
+<p><span lang="fa">مقدار پیش فرض </span>Server Port تنظیم شده در کنسول آریانا، 1385 است.</p>
+<p>&nbsp;</p>
+<h2>ساختارهای فراخوانی</h2>
+<p>&nbsp;</p>
+<p><span lang="fa">فراخوانی متد توسط HTTP POST انجام می‌شود</span>.<br />
+فرمت ورود داده‌<span lang="fa">ها بدین شکل است:</span></p>
+<div align="center">
+<table border="1" width="700">
+<tbody>
+<tr>
+<td>
+<p dir="ltr" style="text-align: left;"><span lang="fa"><span style="color: #0066cc; font-family: 'Courier New'; font-size: small;">Content-type: application/json</span></span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p dir="ltr" align="left"><span style="color: #0066cc; font-family: 'Courier New'; font-size: small;"><span lang="fa">{<br />
+</span><span style="font-family: 'courier new', courier, monospace;">    <span lang="fa">&#8220;Text&#8221;:&#8221;متن درخواستی&#8221;,<br />
+</span>    <span lang="fa">&#8220;Speaker&#8221;:&#8221;Female1&#8243;,<br />
+</span>    <span lang="fa">&#8220;PitchLevel&#8221;:&#8221;0&#8243;,<br />
+</span>    <span lang="fa">&#8220;PunctuationLevel&#8221;:&#8221;0&#8243;,<br />
+</span>    <span lang="fa">&#8220;</span>SpeechSpeed<span lang="fa">L</span>evel<span lang="fa">&#8220;:&#8221;</span>0<span lang="fa">&#8220;,<br />
+</span>    <span lang="fa">&#8220;ToneLevel&#8221;:&#8221;</span>0<span lang="fa">&#8220;,<br />
+</span>    <span lang="fa">&#8220;GainLevel&#8221;:&#8221;</span>0<span lang="fa">&#8220;,<br />
+</span></span></span><span style="color: #0066cc; font-family: 'courier new', courier, monospace; font-size: small;">    <span lang="fa"> &#8220;BeginningSilence&#8221;:&#8221;</span>0<span lang="fa">&#8220;,<br />
+</span>    <span lang="fa"> &#8220;EndingSilence&#8221;:&#8221;</span>0<span lang="fa">&#8220;,<br />
+</span></span><span style="color: #0066cc; font-family: 'Courier New'; font-size: small;"><span style="font-family: 'courier new', courier, monospace;">    <span lang="fa">&#8220;Format&#8221;:&#8221;mp3&#8243;,<br />
+</span>    <span lang="fa">&#8220;Quality&#8221;:&#8221;normal&#8221;,<br />
+</span>    <span lang="fa">&#8220;<span style="color: #0066cc; font-size: small;">Base64Encode</span>&#8220;:&#8221;0&#8221;,<br />
+</span></span></span><span style="color: #0066cc; font-family: 'Courier New'; font-size: small;"><span style="font-family: 'courier new', courier, monospace;"><span lang="fa">    &#8220;Username&#8221;:&#8221;test&#8221;,<br />
+</span></span></span><span style="color: #0066cc; font-family: 'Courier New'; font-size: small;"><span lang="fa"><span style="font-family: 'courier new', courier, monospace;">    &#8220;Password&#8221;:&#8221;test&#8221;</span><br />
+}</span></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>&nbsp;</p>
+<p><span lang="fa">توجه شود که حتماً در Header درخواست POST، نوع داده (Content-type) به صورت application/json مشخص گردد.</span></p>
+<p>سرویس آریانا پس از پردازش متن درخواستی، صوت تبدیل شده را در جواب به صورت Byte Stream ارسال می‌نماید.<br />
+درخواست پردازش متن به صورت غیر هم‌زمان (Blocking) بوده و کلاینت موظف است تا اتمام پردازش متن و آماده شدن کامل صوت، منتظر پاسخ بماند. لذا نیاز است پارامتر Timeout در کلاینت به مقدار مناسبی تنظیم شود تا درخواست POST قبل از اتمام پردازش قطع نشود<span lang="fa">. مقدار پیشنهادی این پارامتر برای متن طولانی، حداقل 120 ثانیه است.<br />
+</span></p>
+<p>&nbsp;</p>
+<h2>شرح پارامترها</h2>
+<table style="width: 89.5629%; height: 807px;" border="1" width="700">
+<tbody>
+<tr style="height: 19px;">
+<td style="text-align: right; height: 19px;"><span style="color: #0066cc; font-size: small;">Text</span></td>
+<td style="height: 19px;"><span style="font-size: small;">متن درخواستی برای پردازش</span></td>
+</tr>
+<tr style="height: 76px;">
+<td style="height: 76px;"><span style="color: #0066cc; font-size: small;">Speaker</span></td>
+<td style="height: 76px;"><span style="font-size: small;">گوینده متن<br />
+مقادیر: Female1, Male1 (پیش‌فرض Female1)</span><span style="font-size: small;"><br />
+انتخاب پیش‌فرض: &#8221; <span lang="fa">(</span>empty string<span lang="fa">)</span></span></td>
+</tr>
+<tr style="height: 57px;">
+<td style="height: 57px;"><span style="color: #0066cc; font-size: small;">PitchLevel</span></td>
+<td style="height: 57px;"><span style="font-size: small;">میزان زیر و بمی صدا<br />
+مقادیر: 1 تا 10 (پیش‌فرض 4)</span><br />
+<span style="font-size: small;">انتخاب پیش‌فرض: 0</span></td>
+</tr>
+<tr style="height: 69px;">
+<td style="height: 69px;"><span style="color: #0066cc; font-size: small;">PunctuationLevel</span></td>
+<td style="height: 69px;"><span style="font-size: small;">سطح خواندن علائم نگارشی<br />
+مقادیر: 1 تا 3 (پیش‌فرض 2)</span><br />
+<span style="font-size: small;">انتخاب پیش‌فرض: 0</span></td>
+</tr>
+<tr style="height: 69px;">
+<td style="height: 69px;"><span style="color: #0066cc; font-size: small;"><span style="color: #0066cc; font-size: small;">SpeechSpeedLevel</span></span></td>
+<td style="height: 69px;"><span style="font-size: small;">سرعت خواندن<br />
+مقادیر: 1 تا 10 (پیش‌فرض 5)<br />
+انتخاب پیش‌فرض: 0</span></td>
+</tr>
+<tr style="height: 57.625px;">
+<td style="height: 57px;"><span style="color: #0066cc; font-size: small;">ToneLevel</span></td>
+<td style="height: 57px;"><span style="font-size: small;">تن صدا<br />
+مقادیر: 1 تا 19 (پیش‌فرض 10)<br />
+انتخاب پیش‌فرض: 0</span></td>
+</tr>
+<tr style="height: 59px;">
+<td style="height: 59px;"><span style="color: #0066cc; font-size: small;">GainLevel</span></td>
+<td style="height: 59px;"><span style="font-size: small;">بلندی<br />
+مقادیر: 1 تا 5 (پیش‌فرض 3)<br />
+انتخاب پیش‌فرض: 0</span></td>
+</tr>
+<tr style="height: 59px;">
+<td style="height: 59px;"><span style="color: #0066cc; font-size: small;"><span style="color: #0066cc; font-size: small;">BeginningSilence </span></span></td>
+<td style="height: 59px;"><span style="font-size: small;">تعداد ثانیه های سکوت ابتدای صوت<br />
+مقادیر: 0 تا 5<span lang="fa"> (پیش‌فرض 0)</span></span></td>
+</tr>
+<tr style="height: 59px;">
+<td style="height: 59px;"><span style="color: #0066cc; font-size: small;"><span style="color: #0066cc; font-size: small;">EndingSilence </span></span></td>
+<td style="height: 59px;"><span style="font-size: small;">تعداد ثانیه های سکوت انتهای صوت<br />
+مقادیر: 0 تا 5<span lang="fa"> (پیش‌فرض 0)</span></span></td>
+</tr>
+<tr style="height: 171px;">
+<td style="height: 171px;"><span style="color: #0066cc; font-size: small;">Format</span></td>
+<td style="height: 171px;"><span style="font-size: small;">فرمت گفتار تبدیل شده<br />
+مقادیر:</span></p>
+<p dir="ltr"><span style="font-size: small;"> wav16: Wave 16KHz Mono 16bit</span><br />
+<span style="font-size: small;"> alaw<span lang="fa">16</span>: Wave 16KHz Mono a-law 8bit</span><br />
+<span style="font-size: small;">mlaw<span lang="fa">16</span>: Wave 16KHz Mono mu-law 8bit<br />
+wav8: Wave 8KHz Mono 16bit</span><br />
+<span style="font-size: small;">alaw<span lang="fa">8</span>: Wave 8KHz Mono a-law 8bit</span><br />
+<span style="font-size: small;">mlaw<span lang="fa">8</span>: Wave 8KHz Mono mu-law 8bit</span><br />
+<span style="font-size: small;">mp3: MP3 32Kbps Mono<br />
+ogg: OGG (Opus) 32Kbps Mono<br />
+raw<span lang="fa">16</span>: Raw Wave 16KHz Mono 16bit, Without 44 Bytes Wave Header</span></p>
+<p><span style="font-size: small;"><span lang="fa">(پیش‌فرض </span> wav16<span lang="fa">)</span><br />
+<span lang="fa">انتخاب </span>پیش‌فرض: &#8221; <span lang="fa"> (</span>empty string<span lang="fa">)</span><br />
+</span></td>
+</tr>
+<tr style="height: 28px;">
+<td style="height: 28px;"><span style="color: #0066cc; font-size: small;">Quality</span></td>
+<td style="height: 28px;"><span style="font-size: small;"><span style="font-size: small;">کیفیت صدای ساخته شده<br />
+مقادیر:<br />
+</span></span></p>
+<p style="direction: ltr;"><span style="font-family: inherit; line-height: 1.5;">normal: صدا با کیفیت نرمال &#8211; پیش فرض<br />
+</span><span style="font-family: inherit; line-height: 1.5;">low: صدا با کیفیت کم‌تر و زمان ساخت سریع‌تر</span></p>
+</td>
+</tr>
+<tr style="height: 43px;">
+<td style="height: 43px;"><span style="color: #0066cc; font-size: small;">Base64Encode</span></td>
+<td style="height: 43px;"><span style="font-size: small;"><span style="font-size: small;">استفاده از Base64 Encoding در <span lang="fa"> ارسال متن</span> ورودی و <span lang="fa">بافر صوتی </span>خروجی<br />
+مقادیر: 0 تا 4<span lang="fa"> (پیش‌فرض 0)</span><br />
+مقادیر 0 و 1 از Base64 Encoding استفاده نمی‌<span lang="fa">شود</span>.<br />
+مقدار 2 برای <span lang="fa">ارسال متن</span> ورودی از Base64 Encoding استفاده <span lang="fa">شده است</span>.<br />
+مقدار 3 برای <span lang="fa">ارسال بافر صوتی</span> <span lang="fa">خروجی</span> از Base64 Encoding استفاده می‌شود.<br />
+مقدار 4 برای <span lang="fa">ارسال متن</span> <span lang="fa">ورودی و بافر صوتی خروجی</span> از Base64 Encoding استفاده می‌شود.</span></span></td>
+</tr>
+<tr style="height: 28px;">
+<td style="height: 28px;"><span style="color: #0066cc; font-size: small;">Username/ Password</span></td>
+<td style="height: 28px;"><span style="font-size: small;">نام کاربری و گذرواژه تعریف شده در تنظیمات آریانا کنسول</span></td>
+</tr>
+<tr style="height: 13px;">
+<td style="height: 13px;" colspan="2"><span style="color: #008000;"> <span lang="fa"><span style="font-size: small;">ا<strong>نتخاب</strong></span></span><span style="font-size: small;"><span lang="fa"><strong> پیش‌فرض</strong>، مقداری را انتخاب می‌کند که در آریانا کنسول در قسمت </span>Speech<span lang="fa">/</span>Text Defaults<span lang="fa"> تعیین شده است.</span></span></span></td>
+</tr>
+</tbody>
+</table>
+
+		</div>
+	</div>
+<div class="box-section  animation bounceInLeft " style=""></div></div></div></div></div>
+			</div>
+		</div>
+<div id="sidebarmobile">
+	<div id="text-5" class="sidebar-section white-box widget_text"><h2>درباره ما</h2>			<div class="textwidget"><center><img width="100%" src="wp-content/uploads/2015/02/asrgooyesh-logo.jpg"></center>
+<p  onmouseup="getSelectedParagraphText()" style="text-align: justify;">عصر گویش پرداز فعال‌ترین شرکت ایرانی در زمینه هوش مصنوعی و پردازش صدا است که از سال ۱۳۸۲ با پشتوانه فنی متخصصان دانشگاه صنعتی شریف، مشغول فعالیت بوده است. محصولات و خدمات ارائه شده توسط این شرکت به صورت تخصصی در زمینه‌های تبدیل متن به گفتار، تایپ گفتاری، جستجو در صوت، پردازش تصویر و پردازش زبان طبیعی است.</p></div>
+		</div><div id="text-4" class="sidebar-section white-box widget_text"><h2>وبسایت‌های ما</h2>			<div class="textwidget"><ul class="main-menu">
+<li class="menu-item"><a title="وبسایت عصر گویش پرداز" href="http://asr-gooyesh.com/" target="_blank" rel="noopener noreferrer">وبسایت عصر گویش پرداز<span></span></a></li>
+<li class="menu-item"><a title="نرم افزار تایپ گفتاری نویسا" href="http://nevisasoft.com/" target="_blank" rel="noopener noreferrer">نرم افزار تایپ گفتاری نویسا<span></span></a></li>
+<li class="menu-item"><a title="فروشگاه آنلاین فارسی ویپ" href="http://www.farsivoip.com/" target="_blank" rel="noopener noreferrer">فروشگاه آنلاین فارسی ویپ<span></span></a></li>
+</ul></div>
+		</div><div id="text-6" class="sidebar-section white-box widget_text"><h2>برخی مشتریان ما</h2>			<div class="textwidget">شرکت داده پردازی آموت (آوانک)<br>
+شرکت سوئدی ReadSpeaker<br>
+شرکت سامانه فناوری طوبی<br>
+شرکت سپهر سلامت<br>
+شرکت فناوری اطلاعات ارتباطات<br>
+پارسه بین الملل آتیه ویژن<br>
+شرکت ایمن دابا پارسیان<br>
+شرکت پویان سیستم یزد<br>
+و ...</div>
+		</div></div>
+<footer>
+    <div class="up-footer">
+		<div class="row">
+                                        </div>
+    </div>
+    <div class="footer-line">
+		<p>.Copyright © 2014-2019 ASR Gooyesh Pardaz. All rights reserved</p>
+		 		<a class="go-top" href="index.html%3Fp=339.html#"><i class="fa fa-angle-up"></i></a>
+				
+
+
+    </div>
+</footer>
+
+<!-- end of div id=content-->
+	
+</div> 
+<!--end container-->
+</div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-85057934-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type='text/javascript' src='https://www.farsireader.com/wp-includes/js/comment-reply.min.js?ver=5.2.16'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"https:\/\/www.farsireader.com\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.farsireader.com/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=5.1.7'></script>
+<script type='text/javascript' src='https://www.farsireader.com/wp-content/themes/RadinTheme/js/plugins.js?ver=3.2'></script>
+<script type='text/javascript' src='https://www.farsireader.com/wp-content/themes/RadinTheme/js/script.js?ver=3.2'></script>
+<script type='text/javascript' src='https://www.farsireader.com/wp-includes/js/wp-embed.min.js?ver=5.2.16'></script>
+<script type='text/javascript' src='https://www.farsireader.com/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js?ver=4.12'></script>
+
+<script type="text/javascript" src="https://app.romand.ir/widget/static/romand-widget-launcher.js"></script>
+<script type="text/javascript">launchRomandWidget("4f8faacf-c3dc-491c-aba5-ae63e861aaa5")</script>
+
+
+	
+
+
+</body>
+</html>
